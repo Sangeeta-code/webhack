@@ -306,6 +306,7 @@ print("""
 13. Portugal
 14. Singapure
 15. Columbia
+16. India
 
 ----Project by Yan4ik----
 Subscribe to Yan4ik Channel on YouTube! 
@@ -660,6 +661,30 @@ if num == 15:
         except:
             print (" ") 
 
+if num == 16:
+        print("\n")		
+        try:
+            headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:68.0) Gecko/20100101 Firefox/68.0'}       
+            for page in range (0,6):
+			
+                url = ("http://www.insecam.org/en/bycountry/IN/?page="+str(page))
+            
+                res = requests.get(url, headers=headers)
+                findip = re.findall('http://\d+.\d+.\d+.\d+:\d+', res.text)
+                count = 0
+                                
+                for _ in findip:
+                     hasil = findip[count]
+
+                     print ("\033[1;31m",hasil)
+                     f = open('logs.txt' , 'a')
+                     f.write(f'{findip}' + '\n')
+                     f.close()
+                 
+                     count += 1
+        except:
+            print (" ") 
+
 
 print("Готово! Все логи были сохранены в файл logs.txt")
 print("""
@@ -671,3 +696,4 @@ MODYFIED BY 0X40
 
 ------Version 1.1------
 """)
+
